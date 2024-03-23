@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="C:\Users\Vinit\Desktop\bootstrap-5.3.2-dist\css\bootstrap.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	
+	<title>DD</title>
+	<style>
+	    /* Custom CSS for drop-up menu */
+	    .dropup {
+	      position: relative;
+	    }
+
+	    .dropup .dropdown-menu {
+	      position: absolute;
+	      bottom: 100%;
+	      left: 0;
+	      margin-bottom: 0.125rem;
+	    }
+	    .container{
+	      margin-top: 200px;
+	    }
+  	</style>
+</head>
+<body>
+	<div class="dropdown">
+  		<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</button>
+  		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    		<a class="dropdown-item" href="https://discord.com/login">Discord</a>
+    		<a class="dropdown-item" href="https://github.com/login">GitHub</a>
+    		<div class="dropdown-divider"></div>
+    		<a class="dropdown-item" href="https://twitter.com/x">X</a>
+  		</div>
+	</div>
+
+	<div class="container">
+	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	      <a class="navbar-brand" href="#">LOGO</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+	      <div class="collapse navbar-collapse" id="navbarNav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item dropup">
+	            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	              Dropup
+	            </a>
+	            	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+			          	<a class="dropdown-item text-primary" href="https://www.google.co.in/">Google</a>
+			          	<a class="dropdown-item text-danger" href="https://www.facebook.com/">FB</a>
+			          <div class="dropdown-divider"></div>
+			          	<a class="dropdown-item" href="https://www.youtube.com/?gl=IN">YT</a>
+			        </div>
+	          </li>
+	        </ul>
+	      </div>
+	    </nav>
+  	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>

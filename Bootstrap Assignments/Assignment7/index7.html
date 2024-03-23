@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Filterable List with Bootstrap</title>
+  <style>
+    /* Add some custom styles if needed */
+    .list-group-item {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Filterable List</h2>
+
+  <!-- Filter buttons -->
+  <div class="btn-group mb-3" role="group" aria-label="Filter by category">
+    <button type="button" class="btn btn-outline-secondary filter-btn" data-filter="all">All</button>
+    <button type="button" class="btn btn-outline-danger filter-btn" data-filter="category1">Vegetables</button>
+    <button type="button" class="btn btn-outline-warning filter-btn" data-filter="category2">Fruits</button>
+    <!-- Add more buttons for additional categories -->
+  </div>
+
+  <!-- List of items -->
+  <ul class="list-group" id="itemList">
+    <li class="list-group-item category1">Methi</li>
+    <li class="list-group-item category1">Bhendi</li>
+    <li class="list-group-item category1">Palak</li>
+    <li class="list-group-item category1">Tomato</li>
+    <li class="list-group-item category1">Potato</li>
+
+    <div class="list-group-item category2">Apple </div>
+    <div class="list-group-item category2">Banana</div>
+    <div class="list-group-item category2">Grapes</div>
+    <div class="list-group-item category2">Mango </div>
+    <div class="list-group-item category2">Orange</div>
+    <!-- Add more items and assign categories using class names -->
+  </ul>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const itemList = document.getElementById('itemList');
+
+    filterButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        const filterValue = this.getAttribute('data-filter');
+
+        // Remove 'active' class from all buttons
+        filterButtons.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+
+        // Add 'active' class to the clicked button
+        this.classList.add('active');
+
+        // Show/hide items based on the filter value
+        const items = document.querySelectorAll('.list-group-item');
+        items.forEach(function(item) {
+          if (filterValue === 'all' || item.classList.contains(filterValue)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

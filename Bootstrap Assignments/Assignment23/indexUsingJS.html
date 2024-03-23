@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester Courses</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <h2>Semester Courses</h2>
+  
+  <!-- Odd and Even Semester Buttons -->
+  <div class="btn-toolbar" role="toolbar" aria-label="Odd and Even Semester Buttons">
+    <div class="btn-group mr-2" role="group" aria-label="Odd Semester">
+      <button type="button" class="btn btn-primary" onclick="showSemester('odd')">Odd Semesters</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="Even Semester">
+      <button type="button" class="btn btn-primary" onclick="showSemester('even')">Even Semesters</button>
+    </div>
+  </div>
+
+  <!-- Courses Container -->
+  <div id="courseContainer" class="mt-4">
+    <!-- Courses will be displayed here dynamically -->
+  </div>
+</div>
+
+<script>
+  // Sample course data for odd and even semesters
+  const courses = {
+    odd: {
+      sem1: ["Course 1A", "Course 2A", "Course 3A"],
+      sem3: ["Course 4A", "Course 5A", "Course 6A"]
+    },
+    even: {
+      sem2: ["Course 1B", "Course 2B", "Course 3B"],
+      sem4: ["Course 4B", "Course 5B", "Course 6B"]
+    }
+  };
+
+  // Function to display courses of selected semester
+  function showSemester(semester) {
+    const courseContainer = document.getElementById('courseContainer');
+    courseContainer.innerHTML = '';
+
+    const semesterCourses = courses[semester];
+
+    for (const sem in semesterCourses) {
+      const coursesList = semesterCourses[sem];
+      const buttonGroup = document.createElement('div');
+      buttonGroup.classList.add('btn-group', 'mr-2');
+      buttonGroup.setAttribute('role', 'group');
+
+      const buttonDropdown = document.createElement('div');
+      buttonDropdown.classList.add('btn-group');
+      buttonDropdown.setAttribute('role', 'group');
+
+      const dropdownButton = document.createElement('button');
+      dropdownButton.classList.add('btn', 'btn-secondary', 'dropdown-toggle');
+      dropdownButton.setAttribute('type', 'button');
+      dropdownButton.setAttribute('data-toggle', 'dropdown');
+      dropdownButton.setAttribute('aria-haspopup', 'true');
+      dropdownButton.setAttribute('aria-expanded', 'false');
+      dropdownButton.textContent = `Semester ${sem}`;
+
+      const dropdownMenu = document.createElement('div');
+      dropdownMenu.classList.add('dropdown-menu');
+
+      coursesList.forEach(course => {
+        const dropdownItem = document.createElement('a');
+        dropdownItem.classList.add('dropdown-item');
+        dropdownItem.setAttribute('href', '#');
+        dropdownItem.textContent = course;
+        dropdownMenu.appendChild(dropdownItem);
+      });
+
+      buttonDropdown.appendChild(dropdownButton);
+      buttonDropdown.appendChild(dropdownMenu);
+      courseContainer.appendChild(buttonGroup);
+      courseContainer.appendChild(buttonDropdown);
+    }
+  }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

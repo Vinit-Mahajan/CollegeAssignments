@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.css">
+    <title>Filterable List</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="btn-group mb-3">
+        <button class="btn btn-primary filter-button" data-filter="all">All</button>
+        <button class="btn btn-primary filter-button" data-filter=".category1">Fruits</button>
+        <button class="btn btn-primary filter-button" data-filter=".category2">Vegetables</button>
+    </div>
+
+    <div class="row" id="filter-container">
+        <div class="col-md-4 filter-item category1">Apple </div>
+        <div class="col-md-4 filter-item category1">Banana</div>
+        <div class="col-md-4 filter-item category1">Grapes</div>
+        <div class="col-md-4 filter-item category1">Mango </div>
+        <div class="col-md-4 filter-item category1">Orange</div>
+
+        <div class="col-md-4 filter-item category2">Bhendi </div>
+        <div class="col-md-4 filter-item category2">Methi </div>
+        <div class="col-md-4 filter-item category2">Palak </div>
+        <div class="col-md-4 filter-item category2">Tomato </div>
+        <div class="col-md-4 filter-item category2">Gavar </div>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script> -->
+<script>
+    $(document).ready(function(){
+        
+        var $items = $('#filter-container').isotope({
+            itemSelector: '.filter-item',
+            layoutMode: 'fitRows'
+        });
+
+        // Filter items on button click
+        $('.filter-button').on('click', function() {
+            var filterValue = $(this).attr('data-filter');
+            $items.isotope({ filter: filterValue });
+        });
+
+        // Add active class to the current button (highlight it)
+        $('.filter-button').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>
