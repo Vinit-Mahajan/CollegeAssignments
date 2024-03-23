@@ -1,2 +1,2 @@
 # CollegeAssignments
-Hete all the assignments are kept
+Here all the assignments are kept
